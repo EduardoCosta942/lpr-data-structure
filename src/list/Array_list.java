@@ -10,10 +10,10 @@ public class Array_list {
         List<Integer> array_list = new ArrayList<>(Arrays.asList(0,1));
         long start = System.nanoTime();
 
-        // Insert values at list
+        /*// Insert values at list
         for (int x = 0; x < 10000000; x++){
             array_list.add(rd.nextInt());
-        }
+        }*/
 
         // Insert values at a specif index
         for (int x = 0; x < 10000000; x++){
