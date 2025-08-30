@@ -5,9 +5,6 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class BalancedExpression {
-    public static void main(String[] args){
-        System.out.println(isBalanced("({5+4}+3)"));
-    }
     public static boolean isBalanced(String expression) throws NullPointerException{
         // Declare variables
         char[] OPENDELIMITERS = new char[]{'(', '{', '['};
