@@ -35,6 +35,11 @@ public class Main {
                 case 2 -> {
                     option = -1;
                 }
+
+                default -> {
+                    option = 0;
+                    scanner.nextLine(); // Clear buffer
+                }
             }
         } while (option != -1);
     }
