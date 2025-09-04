@@ -11,6 +11,7 @@ public class Palindrome {
         Stack<Character> stack = new Stack<>();
 
         // Insert into queue and stack
+        text = text.toLowerCase();
         for (char character:text.toCharArray()){
             queue.add(character);
             stack.add(character);

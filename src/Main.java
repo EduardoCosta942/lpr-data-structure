@@ -1,4 +1,5 @@
 import Practices.BalancedExpression;
+import Practices.Palindrome;
 
 import java.util.*;
 
@@ -33,6 +34,14 @@ public class Main {
                 }
 
                 case 2 -> {
+                    System.out.println("""
+                            ---------------------------
+                            What is the text?
+                            """);
+                    System.out.println(Palindrome.isPalindrome(scanner.next()));
+                }
+
+                case 3 -> {
                     option = -1;
                 }
 
@@ -47,7 +56,8 @@ public class Main {
         System.out.println("""
                 ----------MENU----------
                 [1] isBalanced(String expression)
-                [2] Leave
+                [2] isPalindrome()
+                [3] Leave
                 """);
     }
 }
