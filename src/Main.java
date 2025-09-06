@@ -1,4 +1,4 @@
-import Practices.BalancedExpression;
+import Practices.MathematicalExpressions;
 import Practices.Palindrome;
 
 import java.util.*;
@@ -30,7 +30,7 @@ public class Main {
                             What is the expression?
                             """);
                     scanner.nextLine(); // Clear buffer
-                    System.out.println(BalancedExpression.isBalanced(scanner.nextLine()));
+                    System.out.println(MathematicalExpressions.isBalanced(scanner.nextLine()));
                 }
 
                 case 2 -> {
@@ -42,6 +42,15 @@ public class Main {
                 }
 
                 case 3 -> {
+                    System.out.println("""
+                            ---------------------------
+                            What is the expression?
+                            """);
+                    scanner.nextLine(); // Clear buffer
+                    System.out.println(MathematicalExpressions.solveExpression(scanner.nextLine()));
+                }
+
+                case 4 -> {
                     option = -1;
                 }
 
@@ -56,8 +65,9 @@ public class Main {
         System.out.println("""
                 ----------MENU----------
                 [1] isBalanced(String expression)
-                [2] isPalindrome()
-                [3] Leave
+                [2] isPalindrome(String string)
+                [3] solveExpression(String expression)
+                [4] Leave
                 """);
     }
 }
