@@ -27,42 +27,28 @@ public class MathematicalExpressions {
 
     public static int solveExpression(String expression) {
         // Declare variables
-        Stack<Character> signalStack = new Stack<>();
         Stack<Integer> numStack = new Stack<>();
-        int sum;
+        char[] expressionArray = expression.toCharArray();
 
         // Insert at stacks
-        for (char character : expression.toCharArray()) {
-            if (character == '*' || character == '+') {
-                signalStack.add(character);
-            } else {
-                numStack.add(Character.getNumericValue(character));
-            }
-        }
-
-        // Make sums
-        while (numStack.size() != 1){
-            if (!signalStack.isEmpty()) {
-                char pop = signalStack.pop();
-                if (pop == '*') {
-                    numStack.add(numStack.pop() * numStack.pop());
-                } else if (!signalStack.isEmpty() && pop == '+'){
-                    if (signalStack.peek() == '*'){
-                        signalStack.pop();
-                        int num = numStack.pop();
-                        numStack.add(numStack.pop() * numStack.pop());
-                        numStack.add(num);
-                        signalStack.add('+');
-                    } else {
-                        numStack.add(numStack.pop() + numStack.pop());
-                    }
+        for (int x = 0; x < expressionArray.length; x++) {
+            if (!numStack.isEmpty()){
+                if (expressionArray[x] == '*'){
+                    numStack.add(numStack.pop() * Character.getNumericValue(expressionArray[x+1]));
+                    expressionArray[x+1] = '+';
+                } else if (Character.isDigit(expressionArray[x])) {
+                    numStack.add(Character.getNumericValue(expressionArray[x]));
                 }
             } else {
-                numStack.add(numStack.pop() + numStack.pop());
+                numStack.add(Character.getNumericValue(expressionArray[x]));
             }
-
+        }
+        while (numStack.size() != 1){
+            numStack.add(numStack.pop() + numStack.pop());
         }
         return numStack.pop();
+
+
     }
 }
 /*
