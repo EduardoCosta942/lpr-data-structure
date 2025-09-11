@@ -17,8 +17,10 @@ public class MathematicalExpressions {
                 if (DELIMITERS[0][y] == expressionArray[x])
                     delimiterStack.add(expressionArray[x]); // Add at stack the opening delimiter
                 if (DELIMITERS[1][y] == expressionArray[x]) {
-                    if (delimiterStack.peek() == DELIMITERS[0][y])
-                        delimiterStack.pop(); // Pop the delimiter if the inverted delimiter is on top of the stack
+                    if (!delimiterStack.isEmpty()){
+                        if (delimiterStack.peek() == DELIMITERS[0][y])
+                            delimiterStack.pop(); // Pop the delimiter if the inverted delimiter is on top of the stack
+                    }
                 }
             }
         }
@@ -47,8 +49,6 @@ public class MathematicalExpressions {
             numStack.add(numStack.pop() + numStack.pop());
         }
         return numStack.pop();
-
-
     }
 }
 /*
